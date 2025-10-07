@@ -31,7 +31,7 @@ vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.preserveindent = true
 --- Copy/Paste
-vim.opt.clipboard:append("unnamedplus")
+vim.opt.clipboard = "unnamed,unnamedplus"
 vim.o.copyindent = true
 vim.o.virtualedit = "block"
 --- Scrolling

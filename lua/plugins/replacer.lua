@@ -20,26 +20,4 @@ return {
 			},
 		},
 	},
-	{
-		"MagicDuck/grug-far.nvim",
-		version = false,
-		keys = {
-			{
-				"<leader>r",
-				function()
-					require("grug-far").grug_far({ transient = true })
-				end,
-				mode = { "n", "x" },
-			},
-		},
-		config = function()
-			require("grug-far").setup({
-				keymaps = {
-					replace = { n = "<C-Return>" },
-					close = { n = "q" },
-					refresh = { n = "r" },
-				},
-			})
-		end,
-	},
 }

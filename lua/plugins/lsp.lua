@@ -21,6 +21,7 @@ return {
 		end,
 		config = function()
 			local lsp = require("lspconfig")
+			lsp.marksman.setup({})
 			lsp.tinymist.setup({})
 			lsp.lua_ls.setup({})
 			require("lspconfig").pyright.setup({

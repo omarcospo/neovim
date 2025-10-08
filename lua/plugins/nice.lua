@@ -14,7 +14,7 @@ return {
 			},
 			minimum_width = 30,
 			max_height = 10,
-			render = "wrapped-compact",
+			-- render = "compact",
 			stages = "static",
 			timeout = 3000,
 		},

@@ -46,19 +46,18 @@ return {
 	},
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "LspAttach",
-		priority = 1000,
 		config = function()
 			require("tiny-inline-diagnostic").setup({
-				preset = "powerline",
 				options = {
+					show_all_diags_on_cursorline = true,
+					use_icons_from_diagnostic = true,
+					multilines = { enabled = true, trim_whitespaces = true },
 					break_line = {
 						enabled = true,
 						after = 30,
 					},
 				},
 			})
-			vim.diagnostic.config({ virtual_text = false })
 		end,
 	},
 	{
@@ -69,6 +68,7 @@ return {
 		keys = {
 			{ "tt", "<CMD>Trouble lsp_document_symbols toggle focus=false win.position=left filter.buf=0<CR>" },
 			{ "tr", "<CMD>Trouble lsp_references toggle focus=true win.position=bottom filter.buf=0<CR>" },
+			{ "td", "<CMD>Trouble diagnostics toggle focus=true win.position=top filter.buf=0<CR>" },
 		},
 		opts = {
 			auto_close = true,

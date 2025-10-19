@@ -2,7 +2,7 @@ return {
 	{
 		"saghen/blink.cmp",
 		lazy = false,
-		dependencies = { "fang2hou/blink-copilot", "rafamadriz/friendly-snippets" },
+		dependencies = { "fang2hou/blink-copilot", "joelazar/blink-calc", "rafamadriz/friendly-snippets" },
 		version = "*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
@@ -22,8 +22,12 @@ return {
 				nerd_font_variant = "normal",
 			},
 			sources = {
-				default = { "lazydev", "lsp", "copilot", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "copilot", "path", "snippets", "buffer", "calc" },
 				providers = {
+					calc = {
+						name = "Calc",
+						module = "blink-calc",
+					},
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",

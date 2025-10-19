@@ -43,6 +43,9 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup({})
+		end,
 	},
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",

@@ -18,9 +18,6 @@ return {
 			files = {
 				prompt = "Files❯ ",
 				multiprocess = true,
-				cmd = "fd --search-path=/home/nix/",
-				find_opts = [[-type f \! -path '*/.git/*']],
-				fd_opts = [[--color=never --hidden --type f --type l --exclude .git]],
 				cwd_header = false,
 				cwd_prompt = false,
 			},
@@ -44,6 +41,13 @@ return {
 		vim.keymap.set("n", "<leader>hk", "<cmd>FzfLua keymaps<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>fr", "<cmd>FzfLua oldfiles<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua files<CR>", { silent = true })
+		vim.keymap.set("n", "<leader>fd", function()
+			require("fzf-lua").files({
+				prompt = "$HOME ",
+				cmd = "fd --type file --search-path=/home/nix",
+				cwd = vim.fn.expand("%:p:h"),
+			})
+		end, { silent = true })
 		vim.keymap.set("n", "<leader>fj", function()
 			require("fzf-lua").files({
 				prompt = "LS> ",

@@ -1,12 +1,12 @@
 return {
 	{
 		"mikavilpas/yazi.nvim",
-		version = "*", -- use the latest stable version
+		version = "*",
 		event = "VeryLazy",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim", lazy = true },
 		},
-		keys = { { "<leader>f", "<cmd>Yazi cwd<cr>" } },
+		keys = { { "<leader>ff", "<cmd>Yazi cwd<cr>" } },
 		opts = {
 			open_for_directories = false,
 			floating_window_scaling_factor = 0.7,

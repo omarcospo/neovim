@@ -1,19 +1,18 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha", -- latte, frappe, macchiato, mocha
-				custom_highlights = {
+			require("gruvbox").setup({
+				contrast = "",
+				overrides = {
 					NormalFloat = { bg = "NONE" },
 					FloatBorder = { bg = "NONE" },
 					WinSeparator = { bg = "NONE" },
 					SignColumn = { bg = "NONE" },
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 }

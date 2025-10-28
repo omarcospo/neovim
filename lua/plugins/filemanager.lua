@@ -11,6 +11,7 @@ return {
 			open_for_directories = false,
 			floating_window_scaling_factor = 0.7,
 			yazi_floating_window_border = "single",
+			highlight_hovered_buffers_in_same_directory = false,
 			keymaps = {
 				open_file_in_vertical_split = "<c-v>",
 				open_file_in_horizontal_split = "<c-h>",

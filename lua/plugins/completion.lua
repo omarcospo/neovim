@@ -8,7 +8,7 @@ return {
 		---@type blink.cmp.Config
 		opts = {
 			keymap = {
-				preset = "default",
+				preset = "none",
 				["<C-k>"] = { "select_prev", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-u>"] = { "scroll_documentation_up", "fallback" },

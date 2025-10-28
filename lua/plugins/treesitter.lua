@@ -7,37 +7,25 @@ return {
 		config = function()
 			local treesitter = require("nvim-treesitter.configs")
 			local filetypes = {
-				"yaml",
-				"xml",
-				"vimdoc",
-				"vim",
-				"typst",
-				"typescript",
-				"tsx",
-				"toml",
-				"svelte",
-				"regex",
-				"query",
+				-- #general
 				"python",
-				"printf",
-				"org",
+				-- #web
+				-- #docs
+				"typst",
 				"markdown_inline",
 				"markdown",
+				-- #configs
+				"vimdoc",
+				"vim",
 				"luap",
 				"luadoc",
 				"lua",
-				"jsonc",
-				"json",
-				"jsdoc",
-				"javascript",
-				"hyprlang",
-				"htmldjango",
-				"html",
-				"go",
-				"diff",
-				"css",
-				"c",
 				"bash",
+				-- #infos
+				"toml",
+				"yaml",
+				"xml",
+				"json",
 			}
 			---@diagnostic disable-next-line
 			treesitter.setup({

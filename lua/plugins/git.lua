@@ -1,16 +1,5 @@
 return {
 	{
-		"echasnovski/mini.diff",
-		version = false,
-		opts = {
-			view = { style = "number" },
-			mappings = {
-				apply = "gh", -- Apply hunks
-				reset = "gH", -- Reset hunks
-			},
-		},
-	},
-	{
 		"NeogitOrg/neogit",
 		version = false,
 		keys = {

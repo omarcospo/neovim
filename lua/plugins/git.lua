@@ -1,5 +1,19 @@
 return {
 	{
+		"echasnovski/mini.diff",
+		version = false,
+		opts = {
+			view = { style = "sign", signs = { add = " ▎", change = " ▎", delete = " ▎" } },
+			mappings = { apply = "gh", reset = "gH" },
+		},
+		config = function(_, opts)
+			require("mini.diff").setup(opts)
+			vim.api.nvim_set_hl(0, "MiniDiffSignAdd", { fg = "#00ff00", bold = true })
+			vim.api.nvim_set_hl(0, "MiniDiffSignChange", { fg = "#3f51b5", bold = true })
+			vim.api.nvim_set_hl(0, "MiniDiffSignDelete", { fg = "#ff0000", bold = true })
+		end,
+	},
+	{
 		"NeogitOrg/neogit",
 		version = false,
 		keys = {

@@ -36,3 +36,12 @@ else
 	require("config.mappings")
 	require("config.autocmds")
 end
+
+local files = vim.fn.globpath(vim.fn.stdpath("config") .. "/lua/" .. "/customs/", "*.lua", false, true)
+for _, file in ipairs(files) do
+	local module_name = file:match(".*/(.*)%.lua$")
+	local success, err = pcall(require, "/customs/" .. "." .. module_name)
+	if not success then
+		vim.notify("Error requiring " .. module_name .. ": " .. err, vim.log.levels.ERROR)
+	end
+end

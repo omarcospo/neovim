@@ -6,7 +6,7 @@ return {
 		dependencies = {
 			{ "nvim-lua/plenary.nvim", lazy = true },
 		},
-		keys = { { "<leader>ff", "<cmd>Yazi cwd<cr>" } },
+		keys = { { "<leader>ff", "<cmd>Yazi<cr>" } },
 		opts = {
 			open_for_directories = false,
 			floating_window_scaling_factor = 0.7,

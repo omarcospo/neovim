@@ -1,18 +1,14 @@
 return {
 	{
-		"ellisonleao/gruvbox.nvim",
+		"Mofiqul/adwaita.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			require("gruvbox").setup({
-				contrast = "",
-				overrides = {
-					NormalFloat = { bg = "NONE" },
-					FloatBorder = { bg = "NONE" },
-					WinSeparator = { bg = "NONE" },
-					SignColumn = { bg = "NONE" },
-				},
-			})
-			vim.cmd.colorscheme("gruvbox")
+			vim.cmd.colorscheme("adwaita")
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+			vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+			vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+			vim.api.nvim_set_hl(0, "WinSeparator", { bg = "NONE", fg = "#303030" })
 		end,
 	},
 }

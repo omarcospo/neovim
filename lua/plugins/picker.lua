@@ -34,13 +34,13 @@ return {
 				},
 			},
 		})
+		require("fzf-lua").register_ui_select()
 		vim.keymap.set("n", "s", "<cmd>FzfLua blines<CR>", { silent = true })
 		vim.keymap.set("n", "<C-s>", "<cmd>FzfLua live_grep_native<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>bb", "<cmd>FzfLua buffers<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>hh", "<cmd>FzfLua helptags<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>hk", "<cmd>FzfLua keymaps<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>fr", "<cmd>FzfLua oldfiles<CR>", { silent = true })
-		vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua files<CR>", { silent = true })
 		vim.keymap.set("n", "<leader>fd", function()
 			require("fzf-lua").files({
 				prompt = "$HOME ",

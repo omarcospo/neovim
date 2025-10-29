@@ -12,6 +12,8 @@ return {
 					show_buffer_close_icons = false,
 				},
 			})
+			vim.keymap.set("n", "J", "<CMD>bnext<CR>")
+			vim.keymap.set("n", "K", "<CMD>bprevious<CR>")
 		end,
 	},
 }

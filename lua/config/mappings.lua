@@ -1,3 +1,11 @@
+--- Moving
+vim.keymap.set("n", "<C-d>", "5j", { desc = "Scroll down 5 lines" }) -- Scroll down 5 lines
+vim.keymap.set("n", "<C-u>", "5k", { desc = "Scroll up 5 lines" }) -- Scroll up 5 lines
+vim.keymap.set("i", "<C-h>", "<BS>", { desc = "Delete previous character" })
+vim.keymap.set("i", "<C-w>", "<C-w>", { desc = "Delete previous word" })
+vim.keymap.set("i", "<C-a>", "<C-g>u<C-u>", { desc = "Delete to beginning of line" })
+vim.keymap.set("i", "<C-l>", "<C-g>u<C-o>D", { desc = "Delete to end of line" })
+vim.keymap.set("c", "<C-q>", "<C-c>", { desc = "Exit command line" })
 ---- Window
 vim.keymap.set("n", "<leader>wh", "<C-w><C-h>")
 vim.keymap.set("n", "<leader>wl", "<C-w><C-l>")

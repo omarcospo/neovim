@@ -29,9 +29,6 @@ vim.g.editorconfig = false
 if vim.g.vscode then
 	require("config.vscode")
 else
-	require("config.options")
-	require("plugin-manager")
-	require("config.utils")
 	require("config.clean")
 	require("config.mappings")
 	require("config.autocmds")

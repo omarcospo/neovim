@@ -92,17 +92,6 @@ return {
 		},
 	},
 	{
-		"smjonas/inc-rename.nvim",
-		version = false,
-		event = "LspAttach",
-		config = function()
-			require("inc_rename").setup({})
-		end,
-		keys = {
-			{ "gr", ":IncRename " },
-		},
-	},
-	{
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {

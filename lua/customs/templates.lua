@@ -2,10 +2,7 @@ local project_templates = {
 	dotnet = {
 		templates = { "console", "classlib", "mstest", "xunit", "web", "mvc", "webapi" },
 		command = function(template, project_dir)
-			return "dotnet new " .. template .. " -o " .. project_dir
-		end,
-		default_dir = "~/Projects/",
-	},
+			return "dotnet new " .. template .. " -o " .. project_dir .. " && cd " .. project_dir .. " && git init"
 		end,
 		default_dir = "~/Projects/",
 	},
@@ -17,18 +14,22 @@ local project_templates = {
 					.. project_dir
 					.. " && cd "
 					.. project_dir
-					.. " && python -m venv venv && echo 'Flask project created'",
-				django = "django-admin startproject myproject " .. project_dir,
+					.. " && python -m venv venv && git init && echo 'Flask project created with git'",
+				django = "django-admin startproject myproject "
+					.. project_dir
+					.. " && cd "
+					.. project_dir
+					.. " && git init",
 				fastapi = "mkdir -p "
 					.. project_dir
 					.. " && cd "
 					.. project_dir
-					.. " && python -m venv venv && echo 'FastAPI project created'",
+					.. " && python -m venv venv && git init && echo 'FastAPI project created with git'",
 				cli = "mkdir -p "
 					.. project_dir
 					.. " && cd "
 					.. project_dir
-					.. " && python -m venv venv && echo 'CLI project created'",
+					.. " && python -m venv venv && git init && echo 'CLI project created with git'",
 			}
 			return commands[template] or "echo 'Unknown template'"
 		end,
@@ -62,7 +63,7 @@ local function create_project()
 					return
 				end
 
-				Project_dir = config.default_dir .. project_name
+				local Project_dir = config.default_dir .. project_name
 
 				-- Build and execute command
 				local cmd = config.command(template, Project_dir)
@@ -70,6 +71,15 @@ local function create_project()
 				vim.fn.jobstart({ "sh", "-c", cmd }, {
 					rpc = false,
 					term = true,
+					on_exit = function()
+						-- Set Neovim's current working directory to the new project
+						vim.schedule(function()
+							-- Expand ~ to full path if present
+							local expanded_dir = Project_dir:gsub("^~", os.getenv("HOME"))
+							vim.cmd("cd " .. vim.fn.fnameescape(expanded_dir))
+							print("Current working directory set to: " .. expanded_dir)
+						end)
+					end,
 					on_stdout = function()
 						vim.cmd("startinsert")
 					end,

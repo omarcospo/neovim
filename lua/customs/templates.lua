@@ -6,18 +6,6 @@ local project_templates = {
 		end,
 		default_dir = "~/Projects/",
 	},
-	node = {
-		templates = { "express", "react", "vue", "angular", "svelte", "nextjs" },
-		command = function(template, project_dir)
-			local commands = {
-				express = "npx express-generator " .. project_dir,
-				react = "npx create-react-app " .. project_dir,
-				vue = "npx @vue/cli create " .. project_dir .. " --default",
-				angular = "npx @angular/cli new " .. project_dir .. " --routing=true --style=css",
-				svelte = "npx degit sveltejs/template " .. project_dir,
-				nextjs = "npx create-next-app@latest " .. project_dir .. " --typescript --tailwind --eslint --app",
-			}
-			return commands[template] or "echo 'Unknown template'"
 		end,
 		default_dir = "~/Projects/",
 	},

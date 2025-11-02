@@ -66,6 +66,9 @@ return {
 				has_git = function()
 					return vim.b.gitsigns_head or vim.g.loaded_gitsigns_nvim
 				end,
+				is_git_repo = function()
+					return vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true")
+				end,
 			}
 
 			-- Mode colors lookup table - using colors from theme
@@ -228,7 +231,7 @@ return {
 					error = { fg = colors.red },
 					warn = { fg = colors.yellow },
 					info = { fg = colors.cyan },
-					hint = { fg = colors.blue },
+					hint = { fg = colors.comment_fg },
 				},
 			})
 
@@ -238,8 +241,31 @@ return {
 					local clients = vim.lsp.get_clients({ bufnr = 0 })
 					return #clients > 0 and clients[1].name or "No LSP"
 				end,
-				icon = " ",
-				color = { fg = colors.yellow, gui = "bold" },
+				color = { fg = colors.comment_fg, gui = "bold" },
+			})
+
+			-- Git project name (repository name)
+			add_right({
+				function()
+					-- Check if we're in a git repository
+					local handle = io.popen("git rev-parse --show-toplevel 2>/dev/null")
+					if handle then
+						local result = handle:read("*a")
+						handle:close()
+
+						if result and result ~= "" then
+							-- Extract just the folder name from the full path
+							local project_name = result:match("([^/]+)/?$")
+							if project_name then
+								project_name = project_name:gsub("%s+", "") -- Remove any whitespace
+								return "󰉋 " .. project_name
+							end
+						end
+					end
+					return ""
+				end,
+				color = { fg = colors.orange },
+				cond = conditions.hide_in_width,
 			})
 
 			lualine.setup(config)

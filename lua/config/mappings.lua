@@ -1,3 +1,4 @@
+vim.keymap.set("n", "J", "<CMD>join<CR>", { desc = "Scroll down 5 lines" }) -- Scroll down 5 lines
 --- Moving
 vim.keymap.set("n", "<C-d>", "5j", { desc = "Scroll down 5 lines" }) -- Scroll down 5 lines
 vim.keymap.set("n", "<C-u>", "5k", { desc = "Scroll up 5 lines" }) -- Scroll up 5 lines

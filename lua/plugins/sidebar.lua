@@ -10,7 +10,9 @@ return {
 		lazy = false,
 		config = function()
 			require("neo-tree").setup({
-				follow_current_file = { enabled = true, leave_dirs_open = true },
+				filesystem = {
+					follow_current_file = { enabled = true, leave_dirs_open = true },
+				},
 				use_default_mappings = false,
 				window = {
 					position = "left",

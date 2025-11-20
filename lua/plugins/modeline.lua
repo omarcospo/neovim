@@ -236,10 +236,20 @@ return {
 			})
 
 			-- LSP info with increased padding
+			-- LSP info with increased padding
 			add_right({
 				function()
 					local clients = vim.lsp.get_clients({ bufnr = 0 })
-					return #clients > 0 and clients[1].name or "No LSP"
+					if #clients == 0 then
+						return "No LSP"
+					end
+					-- Collect all client names
+					local names = {}
+					for _, client in ipairs(clients) do
+						table.insert(names, client.name)
+					end
+					-- Join with commas (or any separator you like)
+					return table.concat(names, ", ")
 				end,
 				color = { fg = colors.comment_fg, gui = "bold" },
 			})

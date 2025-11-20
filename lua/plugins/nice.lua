@@ -43,30 +43,4 @@ return {
 		lazy = true,
 		opts = {},
 	},
-	{
-		"folke/noice.nvim",
-		version = false,
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("noice").setup({
-				presets = { inc_rename = true },
-				background_color = "#161616",
-				messages = { enabled = true },
-				lsp = {
-					hover = { enabled = false },
-					signature = { enabled = false },
-					progress = { enabled = false },
-					message = { enabled = false },
-					smart_move = { enabled = false },
-				},
-				cmdline = {
-					opts = { border = { style = "single" } },
-				},
-			})
-		end,
-	},
 }

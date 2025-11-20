@@ -63,5 +63,5 @@ vim.keymap.del({ "n", "v", "o" }, "<Esc>")
 local o_keys = "opaitfTF'`[]{}()vVgz,;|?HLM+-_*%#"
 clean_keys("o", "", o_keys, "", "<Esc>")
 
-local nv_keys = " !\"#%&'()*+,-.0;?@FHJKLMQSTUZ[]_`fmqstz{}|~"
+local nv_keys = " !\"#%&'()*+,-.0;?@FHJKLMQSTZ[]_`fmqstz{}|~"
 clean_keys({ "n", "v" }, "", nv_keys, "", "<Nop>")

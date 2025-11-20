@@ -22,16 +22,11 @@ return {
 				nerd_font_variant = "normal",
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer", "calc" },
+				default = { "lsp", "path", "snippets", "buffer", "calc" },
 				providers = {
 					calc = {
 						name = "Calc",
 						module = "blink-calc",
-					},
-					lazydev = {
-						name = "LazyDev",
-						module = "lazydev.integrations.blink",
-						score_offset = 100,
 					},
 				},
 			},

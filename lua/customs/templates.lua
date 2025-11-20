@@ -7,29 +7,14 @@ local project_templates = {
 		default_dir = "~/Projects/",
 	},
 	python = {
-		templates = { "flask", "django", "fastapi", "cli" },
+		templates = { "cli" },
 		command = function(template, project_dir)
 			local commands = {
-				flask = "mkdir -p "
-					.. project_dir
-					.. " && cd "
-					.. project_dir
-					.. " && python -m venv venv && git init && echo 'Flask project created with git'",
-				django = "django-admin startproject myproject "
-					.. project_dir
-					.. " && cd "
-					.. project_dir
-					.. " && git init",
-				fastapi = "mkdir -p "
-					.. project_dir
-					.. " && cd "
-					.. project_dir
-					.. " && python -m venv venv && git init && echo 'FastAPI project created with git'",
 				cli = "mkdir -p "
 					.. project_dir
 					.. " && cd "
 					.. project_dir
-					.. " && python -m venv venv && git init && echo 'CLI project created with git'",
+					.. " && touch main.py && git init && echo 'CLI project created with git'",
 			}
 			return commands[template] or "echo 'Unknown template'"
 		end,

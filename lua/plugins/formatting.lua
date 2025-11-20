@@ -12,6 +12,7 @@ return {
 				python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 				typst = { "typstyle" },
 				nix = { "alejandra" },
+				json = { "jq" },
 			},
 		})
 	end,

@@ -28,12 +28,6 @@ vim.keymap.del("!", "<Tab>")
 local nv_q_keys = ":/?"
 clean_keys({ "n", "v" }, "q", nv_q_keys, "", "<Nop>")
 
-local vo_textobjects = "'\"()><BW[]`bpstw{}"
-clean_keys("v", "i", vo_textobjects, "", "<Nop>")
-clean_keys("v", "a", vo_textobjects, "", "<Nop>")
-clean_keys("o", "i", vo_textobjects, "", "<Esc>")
-clean_keys("o", "a", vo_textobjects, "", "<Esc>")
-
 local nvo_marks = "`'\"^.()><[]{}0123456789"
 clean_keys({ "n", "v" }, "'", nvo_marks, "", "<Nop>")
 clean_keys("o", "'", nvo_marks, "", "<Esc>")
@@ -69,8 +63,5 @@ vim.keymap.del({ "n", "v", "o" }, "<Esc>")
 local o_keys = "opaitfTF'`[]{}()vVgz,;|?HLM+-_*%#"
 clean_keys("o", "", o_keys, "", "<Esc>")
 
-local v_keys = "uoai"
-clean_keys("v", "", v_keys, "", "<Nop>")
-
-local nv_keys = " !\"#%&'()*+,-.0;><=?@FHJKLMQSTUZ[]_`fmqstz{}|~"
+local nv_keys = " !\"#%&'()*+,-.0;?@FHJKLMQSTUZ[]_`fmqstz{}|~"
 clean_keys({ "n", "v" }, "", nv_keys, "", "<Nop>")

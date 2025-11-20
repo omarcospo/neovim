@@ -20,25 +20,34 @@ return {
 			})
 		end,
 		config = function()
-			local lsp = require("lspconfig")
-			lsp.marksman.setup({})
-			lsp.tinymist.setup({})
-			lsp.lua_ls.setup({})
-			require("lspconfig").pyright.setup({
-				cmd = { vim.fn.expand("~/.local/python/bin/pyright-langserver"), "--stdio" },
+			vim.keymap.set("n", "gr", function()
+				vim.lsp.buf.rename()
+			end, { desc = "LSP Rename" })
+			vim.lsp.config("pyright", {
+				cmd = { vim.fn.expand("~/.local/python/bin/pyright-python-langserver"), "--stdio" },
 				settings = {
 					python = {
 						pythonPath = vim.fn.expand("~/.local/python/bin/python"),
 						analysis = {
 							autoImportCompletions = true,
-							autoSearchPaths = true,
-							diagnosticMode = "workspace",
-							useLibraryCodeForTypes = true,
-							typeCheckingMode = "basic",
+							ignore = { "*" },
+							logLevel = "Error",
+							typeCheckingMode = "off",
 						},
 					},
 				},
 			})
+			vim.lsp.config("ruff", {
+				cmd = { vim.fn.expand("~/.local/python/bin/ruff"), "server" },
+				settings = {
+					interpreter = vim.fn.expand("~/.local/python/bin/python"),
+					organizeImports = true,
+				},
+			})
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("ruff")
+			vim.lsp.enable("tinymist")
+			vim.lsp.enable("lua_ls")
 		end,
 	},
 	{
@@ -88,15 +97,6 @@ return {
 			open_no_results = false,
 			icons = {
 				indent = { middle = "", last = "", top = "", ws = "" },
-			},
-		},
-	},
-	{
-		"folke/lazydev.nvim",
-		ft = "lua",
-		opts = {
-			library = {
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
 	},

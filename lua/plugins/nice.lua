@@ -13,31 +13,6 @@ return {
 		},
 	},
 	{
-		"rcarriga/nvim-notify",
-		version = false,
-		lazy = true,
-		opts = {
-			background_colour = "Normal",
-			icons = {
-				DEBUG = "",
-				ERROR = "",
-				INFO = "",
-				TRACE = "✎",
-				WARN = "",
-			},
-			minimum_width = 30,
-			max_height = 10,
-			render = "wrapped-compact",
-			stages = "static",
-			timeout = 3000,
-		},
-		config = function(_, opts)
-			local notify = require("notify")
-			notify.setup(opts)
-			vim.notify = notify
-		end,
-	},
-	{
 		"stevearc/dressing.nvim",
 		version = false,
 		lazy = true,

@@ -13,6 +13,37 @@ return {
 		},
 	},
 	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("noice").setup({
+				presets = { inc_rename = true },
+				background_color = "#161616",
+				messages = { enabled = true },
+				lsp = {
+					hover = { enabled = false },
+					signature = { enabled = false },
+					progress = { enabled = false },
+					message = { enabled = false },
+					smart_move = { enabled = false },
+				},
+				cmdline = {
+					opts = { border = { style = "single" } },
+				},
+			})
+		end,
+	},
+	{
+		"nvim-mini/mini.notify",
+		version = false,
+		config = function()
+			require("mini.notify").setup()
+		end,
+	},
+	{
 		"stevearc/dressing.nvim",
 		version = false,
 		lazy = true,

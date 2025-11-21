@@ -1,8 +1,10 @@
 vim.o.title = true
--- vim.o.cmdheight = 0
+vim.o.cmdheight = 0
 vim.o.showcmd = false
 vim.o.ruler = false
 vim.o.inccommand = "split"
+vim.opt.fillchars = { eob = " " }
+vim.opt.shortmess:append("filnxtToOFWcC")
 --- Session
 vim.o.autochdir = true
 vim.o.swapfile = false

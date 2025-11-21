@@ -54,7 +54,7 @@ return {
 					},
 				},
 			})
-			vim.keymap.set("n", "<leader>e", ":Neotree<CR>", { desc = "Toggle file explorer" })
+			vim.keymap.set("n", "<leader>l", ":Neotree toggle<CR>", { desc = "Toggle file explorer" })
 			vim.api.nvim_create_autocmd({ "VimEnter" }, {
 				callback = function()
 					vim.cmd("Neotree")

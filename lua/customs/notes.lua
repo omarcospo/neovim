@@ -40,24 +40,6 @@ function SelectNoteFile()
 	end, opts)
 end
 
-function FollowMdLink()
-	local line = vim.api.nvim_get_current_line()
-	local filepath = line:match("%[.-%]%((.-)%)")
-	if filepath and vim.fn.filereadable(filepath) == 1 then
-		vim.cmd("edit " .. filepath)
-	end
-end
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.keymap.set("n", "cr", function()
-			FollowMdLink()
-		end, { buffer = true, desc = "Follow markdown link" })
-	end,
-})
-
-vim.keymap.set("n", "<leader>im", FollowMdLink, { desc = "List note" })
 vim.keymap.set("n", "<leader>in", CreateRandomMarkdown, { desc = "New note" })
 vim.keymap.set("n", "<leader>il", list_notes, { desc = "List note" })
 vim.keymap.set("n", "<leader>ii", SelectNoteFile, { desc = "List note" })

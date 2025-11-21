@@ -32,4 +32,7 @@ return {
 		},
 		cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
 	},
+	{
+		"jghauser/follow-md-links.nvim",
+	},
 }

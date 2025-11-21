@@ -1,11 +1,4 @@
 local project_templates = {
-	dotnet = {
-		templates = { "console", "classlib", "mstest", "xunit", "web", "mvc", "webapi" },
-		command = function(template, project_dir)
-			return "dotnet new " .. template .. " -o " .. project_dir .. " && cd " .. project_dir .. " && git init"
-		end,
-		default_dir = "~/Projects/",
-	},
 	python = {
 		templates = { "cli" },
 		command = function(template, project_dir)
@@ -15,6 +8,36 @@ local project_templates = {
 					.. " && cd "
 					.. project_dir
 					.. " && touch main.py && git init && echo 'CLI project created with git'",
+			}
+			return commands[template] or "echo 'Unknown template'"
+		end,
+		default_dir = "~/Projects/",
+	},
+	go = {
+		templates = { "cli", "web", "module" },
+		command = function(template, project_dir)
+			local commands = {
+				cli = "mkdir -p "
+					.. project_dir
+					.. " && cd "
+					.. project_dir
+					.. " && go mod init "
+					.. project_dir:match("([^/]+)$")
+					.. " && touch main.go && git init && echo 'Go CLI project created with git'",
+				web = "mkdir -p "
+					.. project_dir
+					.. " && cd "
+					.. project_dir
+					.. " && go mod init "
+					.. project_dir:match("([^/]+)$")
+					.. " && touch main.go && git init && echo 'Go web project created with git'",
+				module = "mkdir -p "
+					.. project_dir
+					.. " && cd "
+					.. project_dir
+					.. " && go mod init "
+					.. project_dir:match("([^/]+)$")
+					.. " && git init && echo 'Go module created with git'",
 			}
 			return commands[template] or "echo 'Unknown template'"
 		end,

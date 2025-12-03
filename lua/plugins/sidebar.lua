@@ -16,7 +16,7 @@ return {
 				use_default_mappings = false,
 				window = {
 					position = "left",
-					width = 30,
+					width = 26,
 					mapping_options = { noremap = true, nowait = true },
 					mappings = {
 						["<C-q>"] = "cancel",
@@ -45,6 +45,12 @@ return {
 						["<"] = "prev_source",
 						[">"] = "next_source",
 						["i"] = "show_file_details",
+						["<C-y>"] = function(state)
+							local node = state.tree:get_node()
+							local filename = node.name
+							vim.fn.setreg("+", filename)
+							vim.notify("Copied: " .. filename)
+						end,
 					},
 					fuzzy_finder_mappings = {
 						["<C-q>"] = "close",

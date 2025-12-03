@@ -9,7 +9,13 @@ return {
 			local filetypes = {
 				-- #general
 				"python",
+				-- #go
+				"go",
+				"gomod",
+				"gotmpl",
 				-- #web
+				"html",
+				"css",
 				-- #docs
 				"typst",
 				"markdown_inline",
@@ -41,6 +47,7 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		version = false,
+		lazy = false,
 		config = function()
 			require("nvim-ts-autotag").setup({
 				opts = {

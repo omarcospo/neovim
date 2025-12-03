@@ -48,12 +48,48 @@ return {
 			vim.lsp.enable("ruff")
 			vim.lsp.enable("tinymist")
 			vim.lsp.enable("lua_ls")
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						hints = {
+							rangeVariableTypes = true,
+							parameterNames = true,
+							constantValues = true,
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							functionTypeParameters = true,
+						},
+					},
+				},
+			})
+			vim.lsp.enable("gopls")
 		end,
 	},
 	{
-		"j-hui/fidget.nvim",
+		"chrisgrieser/nvim-lsp-endhints",
+		event = "LspAttach",
+		opts = {},
 		config = function()
-			require("fidget").setup({})
+			-- default settings
+			require("lsp-endhints").setup({
+				icons = {
+					type = "󰜁 ",
+					parameter = "󰏪 ",
+					offspec = " ", -- hint kind not defined in official LSP spec
+					unknown = " ", -- hint kind is nil
+				},
+				label = {
+					truncateAtChars = 20,
+					padding = 1,
+					marginLeft = 0,
+					sameKindSeparator = ", ",
+				},
+				extmark = {
+					priority = 50,
+				},
+				autoEnableHints = true,
+			})
 		end,
 	},
 	{

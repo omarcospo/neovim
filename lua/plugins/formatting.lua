@@ -13,6 +13,10 @@ return {
 				typst = { "typstyle" },
 				nix = { "alejandra" },
 				json = { "jq" },
+				go = { "gofmt" },
+				html = { "prettier" },
+				css = { "prettier" },
+				js = { "prettier" },
 			},
 		})
 	end,
